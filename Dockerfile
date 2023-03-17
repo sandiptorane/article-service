@@ -23,4 +23,4 @@ COPY --from=builder /app/main /app
 COPY --from=builder /app/configs /app/configs
 
 # run the executable
-CMD ["/app/main"]
+ENTRYPOINT ./main

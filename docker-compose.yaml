@@ -3,7 +3,7 @@ version: "3.5"
 services:
   svc-database:
     container_name: mysql-container
-    image: mysql:latest
+    image: mysql:5.7
     restart: always
     command: --init-file /docker-entrypoint-initdb.d/setup.sql
     volumes:
@@ -13,11 +13,12 @@ services:
       - "MYSQL_DATABASE=blog"
     ports:
       - "3306:3306"
+    networks:
+      - "article-service-network"
 
   article-service:
     container_name: article-app
     build:
-      context: .
       dockerfile: Dockerfile
     env_file:
       - ./configs/.env
@@ -26,3 +27,10 @@ services:
     restart: on-failure
     depends_on:
       - svc-database
+    networks:
+      - "article-service-network"
+
+networks:
+  article-service-network:
+    driver: bridge
+

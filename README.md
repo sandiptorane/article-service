@@ -22,6 +22,12 @@ for mac
 ```shell
 bash start.sh
 ```
+
+To stop application run
+```shell
+  docker-compose down
+```  
+
 To create mocks run
    ```shell 
     make gen-mock 
