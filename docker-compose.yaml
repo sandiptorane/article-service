@@ -1,0 +1,28 @@
+version: "3.5"
+
+services:
+  svc-database:
+    container_name: mysql-container
+    image: mysql:latest
+    restart: always
+    command: --init-file /docker-entrypoint-initdb.d/setup.sql
+    volumes:
+      - "./db_setup/setup.sql:/docker-entrypoint-initdb.d/setup.sql"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=pass"
+      - "MYSQL_DATABASE=blog"
+    ports:
+      - "3306:3306"
+
+  article-service:
+    container_name: article-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./configs/.env
+    ports:
+      - "8080:8080"
+    restart: on-failure
+    depends_on:
+      - svc-database

@@ -1,16 +1,41 @@
 # article service
+Simple go application to demonstrate REST API for article app
 
 ## Prerequisites
-
 1. docker 
 2. mockery to mock interface functions github.com/vektra/mockery/v2
 
-## tools used
-1. mockery to mock interface functions github.com/vektra/mockery/v2
-2. github.com/DATA-DOG/go-sqlmock to mock sql query
-3. gin for routes
+## Tools used
+- [gin](https://github.com/gin-gonic/gin)
+- [mockery](https://github.com/vektra/mockery)
+- [validator](https://github.com/go-playground/validator)
 
-## how to
-1. to create mocks run `make gen-mock`
-2. to run unit test run `make test-cover`
-3. to deploy start.sh run for linux `sh start.sh` for mac `bash start.sh`
+## Setup process
+### Running Application
+To build and run application simply run
+
+```shell
+sh start.sh
+```
+
+To create mocks run
+   ```shell 
+    make gen-mock 
+   ```
+To run unit test run 
+   ```shell 
+    make unit-test 
+   ```
+
+To check the coverage run
+```shell
+ make test-cover
+```
+
+### Env
+To specify custom environment variables make use of `.env` file
+```shell
+DATABASE_URL="root:pass@tcp(svc-database:3306)/blog"
+```
+### Coverage:
+![Coverage](./docs/coverage.png "Coverage")

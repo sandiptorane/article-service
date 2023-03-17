@@ -28,7 +28,7 @@ func TestAddArticle_Success(t *testing.T) {
 		wantStatus int
 	}{
 		{
-			name: "happy flow",
+			name: "Success",
 			fields: fields{
 				DB: func() service.IArticle {
 					mockDB := mocks.NewIArticle(t)
@@ -169,7 +169,7 @@ func TestGetArticle_Success(t *testing.T) {
 		wantStatus int
 	}{
 		{
-			name: "happy flow",
+			name: "success",
 			fields: fields{
 				DB: func() service.IArticle {
 					mockDB := mocks.NewIArticle(t)
@@ -303,7 +303,7 @@ func TestGetAllArticles_Success(t *testing.T) {
 		wantStatus int
 	}{
 		{
-			name: "happy flow",
+			name: "success",
 			fields: fields{
 				DB: func() service.IArticle {
 					mockDB := mocks.NewIArticle(t)

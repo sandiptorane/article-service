@@ -16,7 +16,7 @@ func TestRegisterRoutes(t *testing.T) {
 		name string
 		args args
 	}{{
-		name: "Happy path",
+		name: "Success",
 		args: args{
 			app: handler.New(&service.ArticleStore{}),
 		},
