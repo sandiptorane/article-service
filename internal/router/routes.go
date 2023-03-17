@@ -24,7 +24,7 @@ func RegisterRoutes(app *handler.Application) *gin.Engine {
 	return r
 }
 
-// Logger is middleware which
+// Logger is middleware which logs response time of API
 func Logger() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		t := time.Now()
@@ -32,7 +32,6 @@ func Logger() gin.HandlerFunc {
 		c.Next()
 
 		// after request
-		latency := time.Since(t)
-		log.Info("PATH :", c.FullPath(), "API latency:", latency)
+		log.Info("PATH :", c.FullPath(), "API latency:", time.Since(t).Milliseconds())
 	}
 }
