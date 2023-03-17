@@ -5,12 +5,13 @@ services:
     container_name: mysql-container
     image: mysql:5.7
     restart: always
+    env_file:
+      - .env
     command: --init-file /docker-entrypoint-initdb.d/setup.sql
     volumes:
       - "./db_setup/setup.sql:/docker-entrypoint-initdb.d/setup.sql"
     environment:
-      - "MYSQL_ROOT_PASSWORD=pass"
-      - "MYSQL_DATABASE=blog"
+      - "MYSQL_ROOT_PASSWORD=${DB_PASSWORD}"
     ports:
       - "3306:3306"
     networks:
@@ -21,7 +22,7 @@ services:
     build:
       dockerfile: Dockerfile
     env_file:
-      - ./configs/.env
+      - .env
     ports:
       - "8080:8080"
     restart: on-failure

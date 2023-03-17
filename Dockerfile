@@ -20,7 +20,7 @@ WORKDIR /app
 # copy prebuilt binary from previous stage to new stage
 COPY --from=builder /app/main /app
 #copy configs
-COPY --from=builder /app/configs /app/configs
+COPY --from=builder /app/.env /app
 
 # run the executable
 ENTRYPOINT ./main

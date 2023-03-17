@@ -45,7 +45,9 @@ To check the coverage run
 ### Env
 To specify custom environment variables make use of `.env` file
 ```shell
-DATABASE_URL="root:pass@tcp(svc-database:3306)/blog"
+DB_USERNAME="root"
+DB_PASSWORD="pass"
+DB_HOST="svc-database"
 ```
 ### Coverage:
 ![Coverage](./docs/coverage.png "Coverage")
