@@ -13,4 +13,3 @@ main
 
 # Output of the go coverage tool
 *.out
-coverage.*
