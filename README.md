@@ -13,11 +13,14 @@ Simple go application to demonstrate REST API for article app
 ## Setup process
 ### Running Application
 To build and run application simply run
-
+for linux
 ```shell
 sh start.sh
 ```
-
+for mac
+```shell
+bash start.sh
+```
 To create mocks run
    ```shell 
     make gen-mock 
