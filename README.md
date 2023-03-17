@@ -8,6 +8,7 @@ Simple go application to demonstrate REST API for article app
 ## Tools used
 - [gin](https://github.com/gin-gonic/gin)
 - [mockery](https://github.com/vektra/mockery)
+- [sqlmock](https://github.com/DATA-DOG/go-sqlmock) to mock sql queries
 - [validator](https://github.com/go-playground/validator)
 
 ## Setup process
